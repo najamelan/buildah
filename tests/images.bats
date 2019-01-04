@@ -87,11 +87,11 @@ load helpers
   cid1=$(buildah from --pull --signature-policy ${TESTSDIR}/policy.json alpine)
   cid2=$(buildah from --pull --signature-policy ${TESTSDIR}/policy.json busybox)
   run buildah --debug=false images --json
-  [ $(wc -l <<< "$output") -eq 12 ]
+  [ $(wc -l <<< "$output") -eq 14 ]
   [ "${status}" -eq 0 ]
  
   run buildah --debug=false images --json alpine
-  [ $(wc -l <<< "$output") -eq 6 ]
+  [ $(wc -l <<< "$output") -eq 8 ]
   [ "${status}" -eq 0 ]
   buildah rm -a
   buildah rmi -a -f
